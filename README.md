@@ -6,3 +6,4 @@ Trabajo Práctico Análisis y Visualización de Datos
 - Lucia Benítez
 - Sofía Luján
 
+Version final
