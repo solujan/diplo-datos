@@ -1,0 +1,33 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r echo=TRUE}
+
+data <- read.csv("https://raw.githubusercontent.com/solujan/diplo-datos/master/AnalisisYCuracion/input/Pokemon.csv",header=TRUE)
+data <- data[-1]
+print(data)
+
+```
+
+```{r echo=TRUE}
+data[, 6:10]
+```
+```{r}
+install.packages("magrittr") # only needed the first time you use it
+install.packages("dplyr")    # alternative installation of the %>%
+library(magrittr) # need to run every time you start R and want to use %>%
+library(dplyr)    # alternative, this also loads %>%
+```
+
+
+```{r echo=True}
+
+#data_filtered <- data[data$Type.1 == 'Fire',]
+df1 <- data %>%
+ filter(data$Type.1 == 'Fire' || data$Type.1 == 'Grass')
+
+plot(df1[,6:7], col = df1$Type.1, pch = 18, main = "Pokemon type Dataset")
+```
+
