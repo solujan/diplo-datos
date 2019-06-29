@@ -11,9 +11,9 @@ Trabajo Práctico Análisis Exploratorio Y Curación de Datos
 
 - con Colab agregando la ruta del notebook:
 
--- Limpieza: https://drive.google.com/file/d/1Knusqr4GFG2NJcSn7zwcEHlmkvtAgqSn/view?usp=sharing
+-- Limpieza: https://colab.research.google.com/drive/1Knusqr4GFG2NJcSn7zwcEHlmkvtAgqSn
 
--- Ejercicio-tablas: https://drive.google.com/file/d/1e7py5QPPOTQgXC5kzEB8pMR0R5baV6HM/view?usp=sharing
+-- Ejercicio-tablas: https://colab.research.google.com/drive/1e7py5QPPOTQgXC5kzEB8pMR0R5baV6HM
 
 
 
