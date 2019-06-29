@@ -5,29 +5,42 @@ output: html_notebook
 
 ```{r echo=TRUE}
 
-data <- read.csv("https://raw.githubusercontent.com/solujan/diplo-datos/master/AnalisisYCuracion/input/Pokemon.csv",header=TRUE)
-data <- data[-1]
+#   https://www.kaggle.com/ronitf/heart-disease-uci/downloads/heart-disease-uci.zip/1
+www = "https://raw.githubusercontent.com/solujan/diplo-datos/master/AnalisisYCuracion/input/heart.csv"
+data <- read.delim(www, sep=",",header = TRUE) 
+#data <- data[-1]
+
+
 print(data)
 
 ```
 
 ```{r echo=TRUE}
-data[, 6:10]
+plot(data[, 4:10], col = data$sex, pch = 18, main = "Players")
 ```
 ```{r}
-install.packages("magrittr") # only needed the first time you use it
-install.packages("dplyr")    # alternative installation of the %>%
-library(magrittr) # need to run every time you start R and want to use %>%
-library(dplyr)    # alternative, this also loads %>%
+
+#data$CLASS[which(data$CLASS=='1')]<-"High School"
+#data$CLASS[which(data$CLASS=='2')]<-"College"
+#data$CLASS[which(data$CLASS=='2')]<-"Non player"
+#data
+
+summary(data)
 ```
 
 
-```{r echo=True}
+```{r}
+library(mclust)
 
-#data_filtered <- data[data$Type.1 == 'Fire',]
-df1 <- data %>%
- filter(data$Type.1 == 'Fire' || data$Type.1 == 'Grass')
+# initialize 3 different classes.
+initialk <- mclust::hc(data = data, modelName = "EII")
+initialk <- mclust::hclass(initialk, 3)
+```
 
-plot(df1[,6:7], col = df1$Type.1, pch = 18, main = "Pokemon type Dataset")
+```{r echo=TRUE}
+# Select 4 continuous variables and look for three distinct groups.
+mcl.model <- Mclust(data[, 3:14], 2)
+# Plot our results.
+plot(mcl.model, what = "classification", main = "Mclust Classification")
 ```
 
